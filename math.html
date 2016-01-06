@@ -1,0 +1,100 @@
+<body></body>
+<script src="jquery.js"></script>
+
+<script>
+	
+
+	var arr = [
+		function (x,y){ return 'x + y'},
+		function (a,b){ return 'x * y'},//function (function (x,y){ return 'x + y'},b){ return 'a * b'},
+ 		function (x,y,z){ return 'x - y - z = ' + (x - y - z)},
+		function (x,y){ return 'x&#178 = ' + Math.pow(x,y) }, //'x&sup2 = ' 
+		function (x){ return '&#8730x =  ' + Math.sqrt(x) },
+		function(x){ return '&#8721x = ' + Math.pow(x,x) } 
+	]
+
+
+
+
+
+
+$('body').html(
+
+	function(){	
+	
+		var x = Math.floor(Math.random()*10+1)
+		var y = Math.floor(Math.random()*10+1)
+		var z = Math.floor(Math.random()*10+1)
+
+		//var x = 9 
+		console.log('x: '+x);	
+		console.log('y: '+y);	
+		console.log('z: '+z);	
+	
+		
+
+		var problem = '<h1>'+arr[2](x, y)+'<h1>';
+		//problem = '<h1>'+arr[0](x, y, z)+arr[1](x, y, z)+(x + y) + (x + y + z)+'</h1>' 
+	
+		return problem;
+	}
+)
+
+
+
+
+function doSomething(){
+	var j=1; 
+	for(i=1; i<100000; i++){
+		j = j + j
+	}
+	console.log(j);
+}
+
+
+function doSomethingElse(){
+	var j=1; 
+	for(i=1; i<100000; i++){
+		j = j + j + j	}
+	console.log(j);
+}
+
+var t0 = performance.now();
+doSomething();
+var t1 = performance.now();
+console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.")
+
+var t2 = performance.now();
+doSomethingElse();
+var t3 = performance.now();
+console.log("Call to doSomethingElse took " + (t3 - t2) + " milliseconds.")
+
+
+/*
+$('body').html(
+    
+    function(){
+        var variable = (Math.floor(Math.random()*5)+1).toString(); 
+        var equals = (Math.floor(Math.random()*5)+1).toString();
+        var problem = variable + ' - ' + 'x' + ' = '+ equals;
+        var answer = parseInt(variable) - parseInt(equals)
+       // var answer = {}.toString.apply(this, variable) - parseInt(equals)
+        
+        
+        
+        setTimeout(function(){
+                var guess = prompt();
+            if (guess == answer){
+                alert('correct')
+            }
+        },1000)
+        //2 + x = 5; x = 3
+        
+        
+        return problem;
+    }
+   
+)
+*/
+</script>
+
